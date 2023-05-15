@@ -120,14 +120,17 @@ class Router {
 
 
     /**
-     * Aborts the request and returns a 404 HTTP
-     * status code.
+     * Aborts the current request and returns a specified HTTP status code.
      *
      * @param int $code The HTTP status code to return (e.g. 404 for "Not Found").
+     * @return void
      */
     private function abort($code) {
         http_response_code($code);
-        require CONTROLLERS_DIR . "/{$code}.php";
+        require CONTROLLERS_DIR . "/HttpError.php";
+        $controller = new HttpError();
+        call_user_func_array([$controller, 'httpError'], [$code]);
+
         exit;
     }
 }
