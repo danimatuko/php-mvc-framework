@@ -25,11 +25,11 @@ $router->get('/contact', 'Contact@index');
 /**
  * Register a GET route to display all posts
  *
- * URI: /posts
+ * URI: /blog
  * Method: GET
  * Controller method: Posts@index
  */
-$router->get('/posts', 'Posts@index');
+$router->get('/blog', 'Posts@index');
 
 
 /**

@@ -1,12 +1,26 @@
-<?php require APP_DIR . '/views/inc/header.php'; ?>
+<?php require APP_DIR . '/views/inc/header.php' ?>
 
-<h1>Posts</h1>
+<header>
+    <h1>Blog</h1>
+    <p>Welcome to the Blog! Check out our latest posts below.</p>
+</header>
 
-<?php foreach ($posts as $post) : ?>
-<h2><?= $post['title'] ?></h2>
-<article><?= $post['content'] ?></article>
-<?php endforeach; ?>
+<section>
+    <?php foreach ($posts as $post) : ?>
+
+    <aside>
+        <small>
+            Published: <?= $post['published_at'] ?>
+        </small>
+        <h2><?= $post['title'] ?></h2>
+        <article><?= $post['content'] ?></article>
+        <br>
+        <div>
+            <a href="/posts/<?= $post['id'] ?>">Read More</a>
+        </div>
+    </aside>
+    <?php endforeach; ?>
+</section>
 
 
-
-<?php require APP_DIR . '/views/inc/footer.php'; ?>
+<?php require APP_DIR . '/views/inc/footer.php' ?>
