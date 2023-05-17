@@ -24,7 +24,7 @@ class Controller {
      * @param string $view The name of the view to render.
      * @param array $data An associative array of data to be passed to the view.
      */
-    public function render($view, $data = array()) {
+    public function render($view, $data = []) {
         $this->view = new View();
         $this->view->render($view, $data);
     }

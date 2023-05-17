@@ -1,13 +1,38 @@
 <?php
 
-class Posts {
+require CORE_DIR . '/Database.php';
+require CORE_DIR . '/Controller.php';
+
+class Posts extends Controller {
+    private $db;
+    private $conn;
+    private $data = [];
 
     public function __construct() {
-        echo "initialize any necessary variables here\n";
+        $this->db = new Database();
+        $this->conn = $this->db->getConn();
     }
 
+
     public function index() {
-        echo 'handle displaying a list of all posts here';
+
+        $sql = "SELECT * 
+                FROM article
+                ORDER BY published_at";
+
+        $results = $this->conn->query($sql);
+
+        $this->data = $results->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+        $data = [
+            'title' => __CLASS__,
+            'file' => 'index',
+            'posts' => $this->data
+        ];
+
+        $this->render('posts/index', $data);
     }
 
     public function show($id) {
