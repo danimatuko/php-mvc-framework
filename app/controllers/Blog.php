@@ -3,7 +3,7 @@
 require CORE_DIR . '/Database.php';
 require CORE_DIR . '/Controller.php';
 
-class Posts extends Controller {
+class Blog extends Controller {
     private $db;
     private $conn;
     private $data = [];
@@ -32,7 +32,7 @@ class Posts extends Controller {
             'posts' => $this->data
         ];
 
-        $this->render('posts/index', $data);
+        $this->render('blog/index', $data);
     }
 
     public function show($id) {
@@ -50,7 +50,7 @@ class Posts extends Controller {
             'post' => $this->data
         ];
 
-        $this->render('posts/show', $data);
+        $this->render('blog/show', $data);
     }
 
 

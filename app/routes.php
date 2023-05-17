@@ -23,70 +23,70 @@ $router->get('/contact', 'Contact@index');
 
 
 /**
- * Register a GET route to display all posts
+ * Register a GET route to display all blog
  *
  * URI: /blog
  * Method: GET
- * Controller method: Posts@index
+ * Controller method: Blog@index
  */
-$router->get('/blog', 'Posts@index');
+$router->get('/blog', 'Blog@index');
 
 
 /**
  * Register a GET route to display a specific post
  *
- * URI: /posts/{id}
+ * URI: /blog/{id}
  * Method: GET
- * Controller method: Posts@show
+ * Controller method: Blog@show
  */
-$router->get('/posts/{id}', 'Posts@show');
+$router->get('/blog/{id}', 'Blog@show');
 
 
 /**
  * Register a GET route to display the form to create a new post
  *
- * URI: /posts/create
+ * URI: /blog/create
  * Method: GET
- * Controller method: Posts@create
+ * Controller method: Blog@create
  */
-$router->get('/posts/create', 'Posts@create');
+$router->get('/blog/create', 'Blog@create');
 
 
 /**
  * Register a POST route to store a new post
  *
- * URI: /posts
+ * URI: /blog
  * Method: POST
- * Controller method: Posts@store
+ * Controller method: Blog@store
  */
-$router->post('/posts', 'Posts@store');
+$router->post('/blog', 'Blog@store');
 
 
 /**
  * Register a GET route to display the form to edit a specific post
  *
- * URI: /posts/edit/{id}
+ * URI: /blog/edit/{id}
  * Method: GET
- * Controller method: Posts@edit
+ * Controller method: Blog@edit
  */
-$router->get('/posts/edit/{id}', 'Posts@edit');
+$router->get('/blog/edit/{id}', 'Blog@edit');
 
 
 /**
  * Register a PUT route to update a specific post
  *
- * URI: /posts/{id}
+ * URI: /blog/{id}
  * Method: PUT
- * Controller method: Posts@update
+ * Controller method: Blog@update
  */
-$router->put('/posts/{id}', 'Posts@update');
+$router->put('/blog/{id}', 'Blog@update');
 
 
 /**
  * Register a DELETE route to delete a specific post
  *
- * URI: /posts/{id}
+ * URI: /blog/{id}
  * Method: DELETE
- * Controller method: Posts@destroy
+ * Controller method: Blog@destroy
  */
-$router->delete('/posts/{id}', 'Posts@destroy');
+$router->delete('/blog/{id}', 'Blog@destroy');

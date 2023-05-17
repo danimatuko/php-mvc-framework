@@ -14,7 +14,7 @@
     <header>
         <nav>
             <a href="/">
-                <img alt="Logo" src="https://via.placeholder.com/200x70?text=Logo" height="70">
+                <img alt="Logo" src="https://via.placeholder.com/100x50?text=Logo" height="70">
             </a>
             <ul>
                 <li><a href="/">Home</a></li>
