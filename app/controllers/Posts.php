@@ -27,7 +27,7 @@ class Posts extends Controller {
 
 
         $data = [
-            'title' => __CLASS__,
+            'title' => 'Blog',
             'file' => 'index',
             'posts' => $this->data
         ];
@@ -36,7 +36,21 @@ class Posts extends Controller {
     }
 
     public function show($id) {
-        echo 'handle displaying the details of a specific post here.' . $id;
+        $sql = "SELECT * 
+                FROM article
+                WHERE id=$id";
+
+        $results = $this->conn->query($sql);
+
+        $this->data = $results->fetch(PDO::FETCH_ASSOC);
+
+        $data = [
+            'title' => $this->data['title'],
+            'file' => 'index',
+            'post' => $this->data
+        ];
+
+        $this->render('posts/show', $data);
     }
 
 

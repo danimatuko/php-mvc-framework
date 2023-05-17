@@ -19,6 +19,7 @@
             <a href="/posts/<?= $post['id'] ?>">Read More</a>
         </div>
     </aside>
+
     <?php endforeach; ?>
 </section>
 
