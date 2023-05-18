@@ -43,15 +43,30 @@ class Blog extends Controller {
 
 
     public function create() {
-        echo 'handle displaying a form for creating a new post here';
+
+
+        $data = [
+            // 'title' => $post['title'],
+            // 'file' => 'index',
+            // 'post' => $post
+        ];
+        $this->render('blog/create', $data);
     }
 
     public function store() {
         echo 'handle processing the form data and creating a new post here';
+        $this->post->createPost($_POST['title'], $_POST['content']);
+        $this->redirect('/blog');
     }
 
+
     public function edit($id) {
-        echo 'handle displaying a form for editing an existing post here';
+        $data = [
+            // 'title' => $post['title'],
+            // 'file' => 'index',
+            // 'post' => $post
+        ];
+        $this->render('blog/edit', $data);
     }
 
     public function update($id) {

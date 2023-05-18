@@ -29,9 +29,13 @@
     }
 
     public function createPost($title, $content) {
-        $this->db->query('INSERT INTO posts (title, content) VALUES (:title, :content)');
+        $sql = "INSERT INTO article (title, content)
+                VALUES (:title, :content)";
+
+        $this->db->query($sql);
         $this->db->bind(':title', $title);
         $this->db->bind(':content', $content);
+
         return $this->db->execute();
     }
 
