@@ -68,8 +68,8 @@ class Router {
     }
 
     /**
-     *
      * Matches a given URI and HTTP method to a registered route in the router's routes array.
+     * 
      * @param string $uri The URI to match against the registered routes
      * @param string $method The HTTP method to match against the registered routes
      * @return array|null Returns the matched route array with any parameters or null if no match is found
@@ -77,7 +77,9 @@ class Router {
     public function match($uri, $method) {
         foreach ($this->routes as $route) {
             $pattern = '/^' . str_replace('/', '\/', $route['uri']) . '$/';
-            $pattern = preg_replace('/\{([a-zA-Z]+)\}/', '(?P<$1>[a-zA-Z0-9-]+)', $pattern);
+
+            $pattern = preg_replace('/\{(id)\}/', '(?P<id>\d+)', $pattern);
+
             if (preg_match($pattern, $uri, $matches) && $route['method'] === strtoupper($method)) {
                 $route['params'] = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
                 return $route;
@@ -97,6 +99,7 @@ class Router {
      */
     public function dispatch($uri, $method) {
         $route = $this->match($uri, $method);
+        // echo '<pre>', var_dump($route), '</pre>';
         if ($route) {
             // Retrieve the action associated with the matched route
             $action = $route['action'];
