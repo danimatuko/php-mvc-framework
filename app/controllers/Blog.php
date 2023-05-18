@@ -2,52 +2,40 @@
 
 require CORE_DIR . '/Database.php';
 require CORE_DIR . '/Controller.php';
+require MODELS_DIR . '/Post.php';
 
 class Blog extends Controller {
     private $db;
-    private $conn;
-    private $data = [];
+    private $post;
 
     public function __construct() {
         $this->db = new Database();
-        $this->conn = $this->db->getConn();
+        $this->db->getConn();
+        $this->post = new Post();
     }
 
 
     public function index() {
 
-        $sql = "SELECT * 
-                FROM article
-                ORDER BY published_at";
-
-        $results = $this->conn->query($sql);
-
-        $this->data = $results->fetchAll(PDO::FETCH_ASSOC);
-
-
+        $posts = $this->post->getAllPosts();
 
         $data = [
             'title' => 'Blog',
             'file' => 'index',
-            'posts' => $this->data
+            'posts' => $posts
         ];
 
         $this->render('blog/index', $data);
     }
 
     public function show($id) {
-        $sql = "SELECT * 
-                FROM article
-                WHERE id=$id";
 
-        $results = $this->conn->query($sql);
-
-        $this->data = $results->fetch(PDO::FETCH_ASSOC);
+        $post = $this->post->getPostById($id);
 
         $data = [
-            'title' => $this->data['title'],
+            'title' => $post['title'],
             'file' => 'index',
-            'post' => $this->data
+            'post' => $post
         ];
 
         $this->render('blog/show', $data);
@@ -71,6 +59,7 @@ class Blog extends Controller {
     }
 
     public function destroy($id) {
-        echo 'handle deleting the specified post here';
+        $this->post->deletePost($id);
+        $this->redirect('/blog');
     }
 }

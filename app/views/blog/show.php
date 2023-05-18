@@ -10,6 +10,12 @@ require APP_DIR . '/views/inc/header.php';
  * Displays the content of a specific post.
  */
 ?>
+
+<form action="/blog/<?= $post['id']; ?>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+</form>
+
 <article>
     <small>Published: <?= $post['published_at'] ?></small>
     <h1><?= $data['title'] ?></h1>
