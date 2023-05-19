@@ -23,7 +23,7 @@ require APP_DIR . '/views/inc/header.php';
         <article><?= $post['content'] ?></article>
         <br>
         <div>
-            <a href="/blog/<?= $post['id'] ?>">Read More</a>
+            <a href="/blog/<?= $post['id'] ?>"><u>Read More</u></a>
         </div>
     </aside>
     <?php endforeach; ?>

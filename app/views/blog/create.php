@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template to display the add new post form.
+ * The template to display the add new post page.
  */
 require APP_DIR . '/views/inc/header.php'; ?>
 

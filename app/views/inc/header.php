@@ -1,5 +1,15 @@
+<?php
+
+/**
+ * HTML template for the blog pages.
+ *
+ * This template includes the header navigation and the main content area.
+ * The $title variable is used to set the title of the page, defaulting to "Blog".
+ */
+?>
+
 <!DOCTYPE html>
-<html lang="en" color-mode="user">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +24,7 @@
     <header>
         <nav>
             <a href="/">
-                <img alt="Logo" src="https://via.placeholder.com/200x70?text=Logo" height="50">
+                <img alt="Logo" src="https://via.placeholder.com/200x70?text=Logo" width=100 height="40">
             </a>
             <ul>
                 <li><a href="/">Home</a></li>
